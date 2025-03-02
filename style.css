@@ -1,4 +1,3 @@
-
 /* **全体レイアウト（スクロール防止 & 画面いっぱいに配置）** */
 body, html {
     text-align: center;
@@ -10,7 +9,7 @@ body, html {
     width: 100vw;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     overflow: hidden; /* ✅ **スクロールを防止** */
 }
@@ -19,53 +18,65 @@ body, html {
 #gameTitle {
     font-size: 4vw;
     margin: 0;
-    padding: 10px;
+    padding: 5px;
     height: 10vh; /* ✅ **タイトルエリアの高さを固定** */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* **ゲームキャンバス（スマホにフィット）** */
+/* **ゲームエリア（キャンバスの中央配置）** */
+#gameContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65vh; /* ✅ **キャンバスを中央に配置するためのエリア** */
+    width: 100%;
+}
+
+/* **ゲームキャンバス（中央に配置 & スマホにフィット）** */
 #gameCanvas {
     background: white;
     border: 2px solid black;
     width: 90vw; /* ✅ **画面幅の90%を使用** */
-    height: 60vh; /* ✅ **画面の60%をキャンバスに使用** */
+    height: 60vh; /* ✅ **ゲーム画面の高さを調整** */
     display: block;
 }
 
-/* **ボタンの配置（横並びに調整！）** */
+/* **ボタンの配置（確実に横並びに！）** */
 #controls {
     display: flex;
     flex-wrap: nowrap; /* ✅ **ボタンを折り返さず横並びに固定！** */
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 5px; /* ✅ **ボタン間のスペースを縮小** */
     width: 100%;
-    height: 20vh; /* ✅ **ボタンエリアを20%に縮小** */
+    height: 15vh; /* ✅ **ボタンエリアを縮小し、ゲーム画面を大きく** */
 }
 
-/* **ボタンデザイン（スマホで押しやすく）** */
+/* **ボタンデザイン（小さくして横並び）** */
 button {
-    padding: 12px 18px;
-    font-size: 3vw;
+    padding: 8px 10px;
+    font-size: 3vw; /* ✅ **フォントを小さくしてコンパクトに** */
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 8px;
     background-color: #007bff;
     color: white;
     border: none;
     transition: 0.2s;
-    width: 20vw; /* ✅ **ボタンを小さくして横に並びやすく** */
-    height: 7vh; /* ✅ **ボタンの高さ統一** */
+    width: 15vw; /* ✅ **ボタンの幅を小さくし、横4つ並ぶように** */
+    height: 6vh; /* ✅ **ボタンの高さを縮小** */
 }
 
-/* **スマホサイズの調整（ボタンを横並びのまま）** */
+/* **スマホでも確実に横並びにする！** */
 @media (max-width: 600px) {
     #controls {
-        flex-wrap: nowrap; /* ✅ **スマホでも横並びのままにする！** */
+        flex-wrap: nowrap; /* ✅ **スマホでも横並びを維持** */
     }
 
     button {
-        font-size: 4vw;
-        width: 22vw; /* ✅ **横並びで4つ配置するための調整** */
-        height: 8vh;
+        font-size: 3.5vw;
+        width: 18vw; /* ✅ **少し大きくしても横並びを維持** */
+        height: 6vh;
     }
 }

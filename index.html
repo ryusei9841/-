@@ -13,14 +13,13 @@
         <h2>ゲームを開始するには暗証番号を入力してください</h2>
         <input type="password" id="pinInput" placeholder="暗証番号を入力">
         <button id="unlockBtn">解除</button>
-        <p id="errorMsg">暗証番号が間違っています！</p>
     </div>
 
     <!-- 🎮 ゲーム画面 -->
     <div id="gameContainer" style="display: none;">
-        <h1>前★戯★王タワーバトル</h1>
-        <h2 id="score">高さ: 0.0m</h2>
-        <h3 id="bestScore">🏆 最高スコア: 0.0m</h3> <!-- ✅ 追加 -->
+        <div>前★戯★王タワーバトル</div>
+        <div id="score">高さ: 0.0m</div>
+        <div id="bestScore">🏆 最高スコア: 0.0m</div> <!-- ✅ 追加 -->
         <canvas id="gameCanvas"></canvas>
         <div class="controls">
             <button id="leftBtn">⬅ 左</button>
