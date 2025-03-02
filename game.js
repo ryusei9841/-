@@ -23,8 +23,8 @@ const world = engine.world;
 
 // キャンバス設定
 const canvas = document.getElementById("gameCanvas");
-const width = Math.min(window.innerWidth, 400); // ✅ スマホでは画面幅を制限
-const height = Math.min(window.innerHeight, 600);
+const width = Math.min(window.innerWidth * 0.8, maxCanvasWidth); // スマホでは横幅90%にする
+const height = Math.min(window.innerHeight * 0.7, maxCanvasHeight); // スマホでは高さ80%にする
 canvas.width = width;
 canvas.height = height;
 
