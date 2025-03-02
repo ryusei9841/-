@@ -1,0 +1,97 @@
+/* **全体のスタイル** */
+body {
+    text-align: center;
+    background-color: #add8e6;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* ✅ **スクロール防止（スマホでズレないように）** */
+    margin: 0;
+    padding: 0;
+}
+
+/* **ロック画面（暗証番号入力）** */
+#lockScreen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    z-index: 1000;
+}
+
+#pinInput {
+    padding: 10px;
+    font-size: 16px;
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+#unlockBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#errorMsg {
+    color: red;
+    display: none;
+}
+
+/* **ゲームキャンバス（スマホ対応）** */
+canvas {
+    background: white;
+    display: block;
+    margin: auto;
+    border: 2px solid black;
+    max-width: 100%; /* ✅ **スマホ画面にフィット** */
+    height: auto;
+}
+
+/* **コントロールボタンエリア（ボタンの配置）** */
+.controls {
+    margin: 10px;
+}
+
+/* **ボタンのデザイン（共通）** */
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    transition: 0.2s;
+}
+
+/* **ボタンを押したときの効果** */
+button:active {
+    transform: scale(0.95);
+}
+
+/* **ボタン配置（PC用：横並び）** */
+#controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* **スマホサイズ時の調整（縦並び & ボタンサイズ調整）** */
+@media (max-width: 600px) {
+    #controls {
+        flex-direction: column; /* ✅ **スマホでは縦に並べる** */
+        align-items: center;
+    }
+
+    button {
+        font-size: 24px;
+        padding: 15px 30px;
+        width: 90%; /* ✅ **スマホではボタンを横幅いっぱいに** */
+    }
+}
