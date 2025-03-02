@@ -1,3 +1,4 @@
+
 /* **全体レイアウト（スクロール防止 & 画面いっぱいに配置）** */
 body, html {
     text-align: center;
@@ -31,41 +32,40 @@ body, html {
     display: block;
 }
 
-/* **ボタンの配置（スマホ対応）** */
+/* **ボタンの配置（横並びに調整！）** */
 #controls {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* ✅ **ボタンを折り返さず横並びに固定！** */
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
     width: 100%;
-    height: 30vh; /* ✅ **ボタンエリアを 30vh に固定** */
+    height: 20vh; /* ✅ **ボタンエリアを20%に縮小** */
 }
 
 /* **ボタンデザイン（スマホで押しやすく）** */
 button {
     padding: 12px 18px;
     font-size: 3vw;
-    margin: 5px;
     cursor: pointer;
     border-radius: 10px;
     background-color: #007bff;
     color: white;
     border: none;
     transition: 0.2s;
-    width: 22vw; /* ✅ **ボタン幅を調整（スマホ横画面時も対応）** */
-    height: 7vh; /* ✅ **ボタン高さを統一** */
+    width: 20vw; /* ✅ **ボタンを小さくして横に並びやすく** */
+    height: 7vh; /* ✅ **ボタンの高さ統一** */
 }
 
-/* **スマホサイズの調整（縦並びに）** */
+/* **スマホサイズの調整（ボタンを横並びのまま）** */
 @media (max-width: 600px) {
     #controls {
-        flex-direction: column; /* ✅ **スマホではボタンを縦並びに** */
+        flex-wrap: nowrap; /* ✅ **スマホでも横並びのままにする！** */
     }
 
     button {
         font-size: 4vw;
-        width: 80%; /* ✅ **横幅を広げてタップしやすく** */
+        width: 22vw; /* ✅ **横並びで4つ配置するための調整** */
         height: 8vh;
     }
 }
