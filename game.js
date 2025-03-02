@@ -21,10 +21,10 @@ const { Engine, Render, World, Bodies, Events } = Matter;
 const engine = Engine.create();
 const world = engine.world;
 
-// キャンバス設定
+// **キャンバス設定（スマホ対応）**
 const canvas = document.getElementById("gameCanvas");
-const width = Math.min(window.innerWidth * 0.8, maxCanvasWidth); // スマホでは横幅90%にする
-const height = Math.min(window.innerHeight * 0.7, maxCanvasHeight); // スマホでは高さ80%にする
+const width = window.innerWidth * 0.9;
+const height = window.innerHeight * 0.6;
 canvas.width = width;
 canvas.height = height;
 
@@ -40,14 +40,10 @@ const render = Render.create({
     }
 });
 
-// **地面と壁を追加（スマホ対応で位置調整）**
-const ground = Bodies.rectangle(width / 2, height - 50, width - 150, 20, { 
-    isStatic: true, 
-    render: { fillStyle: "black" } 
-});
+// **地面と壁を追加（スマホサイズに適応）**
+const ground = Bodies.rectangle(width / 2, height - 20, width - 200, 20, { isStatic: true });
 const leftWall = Bodies.rectangle(-10, height / 2, 20, height, { isStatic: true });
 const rightWall = Bodies.rectangle(width + 10, height / 2, 20, height, { isStatic: true });
-
 World.add(world, [ground, leftWall, rightWall]);
 
 // **スマホのタッチ操作をサポート（ボタン）**
